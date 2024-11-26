@@ -1,0 +1,41 @@
+volumes:
+  static:
+  media_value:
+  db_value:
+
+
+services:
+  fg_db:
+    image: postgres:13
+    volumes:
+      - db_value:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+
+  backend:
+    build: ./backend/
+    env_file:
+      - ./.env
+    depends_on:
+      - fg_db
+    volumes:
+      - static:/static
+      - media_value:/app/media
+
+  frontend:
+    build: ./frontend/
+    command: cp -r /app/build/. /static/
+    depends_on:
+      - backend
+    volumes:
+      - static:/static
+
+  gateway:
+    build: ./infra/
+    env_file: .env
+    ports:
+      - 8000:80
+    volumes:
+      - ../docs/:/usr/share/nginx/html/api/docs/
+      - static:/static
+      - media_value:/app/media/
