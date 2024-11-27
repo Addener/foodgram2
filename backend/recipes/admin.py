@@ -43,7 +43,7 @@ class RecipeAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'author', 'pub_date', 'text']
     list_display_links = ['id', 'name', 'author']
     search_fields = ('name', 'author',)
-    list_filter = ('author', 'name', 'tags')
+    list_filter = ('author', 'tags')
     inlines = (IngredientsInLine, TagsInLine)
     empty_value_display = 'Поле не заполнено'
 
