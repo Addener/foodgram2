@@ -27,7 +27,7 @@ class FoodgramUserAdmin(admin.ModelAdmin):
 class SubscriptionAdmin(admin.ModelAdmin):
     """Создание объекта подписки в админ панели."""
 
-    list_display = ['id', 'user', 'author']
-    list_display_links = ['id', 'user']
-    search_fields = ('author',)
+    list_display = ['follower', 'publisher']
+    list_display_links = ['follower']
+    search_fields = ('follower', 'publisher')
     empty_value_display = 'Поле не заполнено'
