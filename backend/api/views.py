@@ -76,7 +76,7 @@ class FoodgramUserViewSet(UserViewSet):
             url_name='subscriptions')
     def subscriptions(self, request):
         """Просмотр подписок пользователя."""
-        queryset = User.objects.filter(follower__user=request.user)
+        queryset = User.objects.filter(publisher__user=request.user)
         pages = self.paginate_queryset(queryset)
         serializer = FollowSerializer(
             pages,
