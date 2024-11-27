@@ -10,7 +10,7 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'slug']
     list_display_links = ['id', 'name']
     list_filter = ('id', 'name')
-    search_fields = ('name')
+    search_fields = ('name',)
     empty_value_display = 'Поле не заполнено'
 
 
