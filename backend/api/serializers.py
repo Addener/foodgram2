@@ -10,7 +10,7 @@ from api.fields import Base64ImageFieldSerializer
 
 from recipes.models import (Favourites, Ingredient, IngredientRecipe,
                             Recipe, ShoppingList, Tag)
-from users.models import Follow
+from users.models import FoodgramUser ,Follow
 
 User = get_user_model()
 
@@ -90,7 +90,7 @@ class FollowSerializer(FoodgramUserSerializer):
     recipes_count = serializers.SerializerMethodField()
 
     class Meta:
-        model = User
+        model = FoodgramUser
         fields = (
             'id',
             'email',

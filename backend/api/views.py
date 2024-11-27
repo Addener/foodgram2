@@ -34,6 +34,7 @@ from recipes.models import (
     Tag,
 )
 from users.models import Follow
+
 User = get_user_model()
 
 

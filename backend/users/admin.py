@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
+
 from users.models import Follow, FoodgramUser
 
 User = get_user_model()
@@ -13,11 +14,12 @@ admin.site.unregister(Group)
 class FoodgramUserAdmin(admin.ModelAdmin):
     """Создание объекта пользователя в админ панели."""
 
-    list_display = (
+    list_display = [
         'username', 'email', 'first_name', 'last_name'
-    )
-    list_filter = ('email', 'username')
-    search_fields = ('email', 'username')
+    ]
+    list_display_links = ['username', 'email']
+    list_filter = ('email', 'username', 'first_name', 'last_name')
+    search_fields = ('email', 'username', 'first_name', 'last_name')
     empty_value_display = 'Поле не заполнено'
 
 
@@ -25,6 +27,7 @@ class FoodgramUserAdmin(admin.ModelAdmin):
 class SubscriptionAdmin(admin.ModelAdmin):
     """Создание объекта подписки в админ панели."""
 
-    list_display = ('id', 'user', 'author')
+    list_display = ['id', 'user', 'author']
+    list_display_links = ['id', 'user']
     search_fields = ('user', 'author')
     empty_value_display = 'Поле не заполнено'
