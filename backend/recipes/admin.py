@@ -19,7 +19,7 @@ class IngredientAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'name', 'measurement_unit')
     list_display_links = ['id', 'name']
-    search_fields = ('id', 'name')
+    search_fields = ('id', 'name',)
     empty_value_display = 'Поле не заполнено'
 
 
@@ -42,7 +42,7 @@ class RecipeAdmin(admin.ModelAdmin):
 
     list_display = ['id', 'name', 'author', 'pub_date', 'text']
     list_display_links = ['id', 'name', 'author']
-    search_fields = ('name', 'author')
+    search_fields = ('name', 'author',)
     list_filter = ('author', 'name', 'tags')
     inlines = (IngredientsInLine, TagsInLine)
     empty_value_display = 'Поле не заполнено'

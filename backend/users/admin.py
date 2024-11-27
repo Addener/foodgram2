@@ -19,7 +19,7 @@ class FoodgramUserAdmin(admin.ModelAdmin):
     ]
     list_display_links = ['username', 'email']
     list_filter = ('email', 'username', 'first_name', 'last_name')
-    search_fields = ('email', 'username', 'first_name', 'last_name')
+    search_fields = ('email', 'username', 'first_name', 'last_name',)
     empty_value_display = 'Поле не заполнено'
 
 
@@ -29,5 +29,5 @@ class SubscriptionAdmin(admin.ModelAdmin):
 
     list_display = ['id', 'user', 'author']
     list_display_links = ['id', 'user']
-    search_fields = ('user', 'author')
+    search_fields = ('user', 'author',)
     empty_value_display = 'Поле не заполнено'
