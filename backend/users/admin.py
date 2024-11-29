@@ -32,5 +32,5 @@ class SubscriptionAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
-        queryset = queryset.select_related('user', 'author__username')
+        queryset = queryset.select_related('user', 'author')
         return queryset
