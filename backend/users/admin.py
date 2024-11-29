@@ -27,7 +27,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'user', 'author')
     list_display_links = ('id', 'user')
-    search_fields = ('user', 'author')
+    search_fields = ('user', 'author__publisher')
     empty_value_display = 'Поле не заполнено'
 
     def get_queryset(self, request):
